@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/socket.io/socket.io.js"></script>
+    <title>yesorno</title>
+</head>
+<body>
+    <h1 class="center">yes or no</h1>
+    <p class="center">social experimentz xdd</p>
+    <button id="yes">
+        <h4 id="messageyes">yes: </h4>
+    </button> 
+    <button id="no">
+        <h4 id="messageno">no: </h4>
+    </button> 
+
+    <script>
+        const socket = io();
+
+        document.getElementById("yes").addEventListener("click", () => {
+            socket.emit("yesclicked");
+        });
+        document.getElementById("no").addEventListener("click", () => {
+            socket.emit("noclicked");
+        });
+
+
+        socket.on("yescnt", (data) => {
+            document.getElementById("messageyes").innerText = data;
+        });
+        socket.on("noscnt", (data) => {
+            document.getElementById("messageno").innerText = data;
+        });
+    </script>
+    <style>
+        body{
+            margin: 0px;
+        }
+        .center{
+            text-align: center;
+        }
+        button{
+            margin-left: 1vw;
+            height: 60vh;
+            width: 48vw;
+            color: rgb(0, 0, 0)
+        }
+    </style>
+</body>
+</html>
