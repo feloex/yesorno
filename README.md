@@ -7,5 +7,5 @@ featuring:
 - yes + yes counter
 - no + no counter
 
-plz leave a star to suport independent developers
+plz leave a star to support independent developers
 
